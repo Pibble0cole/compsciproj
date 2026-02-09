@@ -1,0 +1,5 @@
+name, interests, opportunity, website, address, phone
+ASPCA;animals,cleaning; must be 18 and older to join; www.pspca.org; 350 E Erie Ave. Philadelphia. PA 19134; 1 (888) 666-2279
+CSPF; food; giving out food. you'll provide items to eligible seniors; www.sharefoodprogram.org; 2901 W Hunting Park Ave. Philadelphia. PA 19129; (215) 223-2220
+PhillyPaws; animals; community service hours; phillypaws.org; 100 N. 2nd Street (at Arch). Philadelphia. PA 19106; 215-238-9901
+St. Peter's Food Cupboard; food; helping the hungry get the food they need; www.stpetersphila.org; 313 Pine Street. Philadelphia. PA 19106; (215) 925-5968
