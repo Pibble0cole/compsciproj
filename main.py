@@ -1,12 +1,12 @@
 import tkinter as tk
 from service_opp import Service_opp
 
-intrests= ["animals", "cleaning", "cooking", "serving"]
+intrests= ["animals", "cleaning", "food", "helping"]
 
 service_opp=["spca","park","soup kichen", "nursing home"]
 
 root= tk.Tk()
-root.geometry("800x800")
+root.geometry("1500x800")
 title = tk.Label(root, text="Community Service Tracker", font=("Helvetica", 30))
 title.grid(row=0, column=0, padx=10, pady=10)
 
@@ -25,8 +25,8 @@ name_label.grid(row=3, column=0, padx=10, pady=10,sticky="w")
 
 # Entry
 name_entry = tk.Entry(root)
-
 name_entry.grid(row=4, column=0, padx=10, pady=10,sticky="w")
+
 # intrests
 intrests_des= tk.Label(root, text="select your intrests:")
 intrests_des.grid(row=5, column=0, padx=10, pady=10,sticky="w")
@@ -78,6 +78,8 @@ for item in intrests:
 # Function to see suggestions
 suggestion_dic={}
 def get_selected(row):
+    name = name_entry.get()
+    print(name)
     selected = [name for name, var in selected_intrests.items() if var.get() == 1]
     row+=1
     sug_title = tk.Label(root, text="Sugestions:")
@@ -87,12 +89,12 @@ def get_selected(row):
         for opp in serviceobj:
             if item in opp.interests:
                 print(opp.name)
-                suggestedservice.append(opp.name)
+                suggestedservice.append([opp.name, opp.opportunity, opp.website, opp.address, opp.phone])
                 
     row+=1
                 
 
-    listbox = tk.Listbox(root, height=10, width=20, selectmode=tk.SINGLE) 
+    listbox = tk.Listbox(root, height=12, width=150, selectmode=tk.SINGLE) 
     listbox.grid(row=row, column=0, padx=10, pady=10,sticky="w")
     for item in suggestedservice:
         listbox.insert(tk.END, item)
@@ -132,6 +134,7 @@ def get_selected(row):
 
     
 tk.Button(root, text="Submit", command=lambda: get_selected(row)).grid(row=row, column=0, padx=10, pady=10,sticky="w")
+
 
 root.mainloop()
 
