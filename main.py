@@ -1,3 +1,4 @@
+#importing widgets
 import tkinter as tk
 from service_opp import Service_opp
 
@@ -19,15 +20,22 @@ frame = tk.Frame(root, width=150, height=10)
 frame.pack(side="left", anchor="nw", pady=10)
 """
 
-# Label
+#Label for the name input
 name_label = tk.Label(root, text="Name:")
 name_label.grid(row=3, column=0, padx=10, pady=10,sticky="w")
 
-# Entry
+
+#entry
 name_entry = tk.Entry(root)
 name_entry.grid(row=4, column=0, padx=10, pady=10,sticky="w")
 
-# intrests
+usrname = name_entry.cget("text")
+if usrname == "":
+    print("please insert a name")
+else:
+    print("proceed", usrname)
+
+#intrest selection label
 intrests_des= tk.Label(root, text="select your intrests:")
 intrests_des.grid(row=5, column=0, padx=10, pady=10,sticky="w")
 
@@ -38,7 +46,7 @@ serviceobj = []
 with open("service.txt", "r") as file:
     tempjobs = file.readlines()
 
-    
+
 for i in range(1,len(tempjobs)):
     line = tempjobs[i].split(";")
     name = line[0]
@@ -53,29 +61,26 @@ for i in range(1,len(tempjobs)):
 for opp in serviceobj:
     print(opp.name)
 
-
-
-
-
-
-
-
-
 selected_intrests = {}
 
 
-# 3. Loop through the list to create widgets
+#this loops through the list to create widgets
 for item in intrests:
     var = tk.IntVar()
     
     cb = tk.Checkbutton(root, text=item, variable=var)
     cb.grid(row=row, column=0, padx=10, pady=10,sticky="w")
     
-    # Store the variable in our dictionary using the topping name as the key
+    
+    #this stores the variable in our dictionary using the topping name as the key
     selected_intrests[item] = var
     row+=1
 
-# Function to see suggestions
+cbval = cb.cget("variable")
+if cbval == 0:
+        print("please select one of the options")
+
+#Function to see suggestions
 suggestion_dic={}
 def get_selected(row):
     name = name_entry.get()
@@ -104,7 +109,7 @@ def get_selected(row):
 
 
 
-
+#work in progress code
     
     """for intrest in selected:
         row+=1
@@ -132,7 +137,7 @@ def get_selected(row):
 
 
 
-    
+#this adds the submit button function
 tk.Button(root, text="Submit", command=lambda: get_selected(row)).grid(row=row, column=0, padx=10, pady=10,sticky="w")
 
 
