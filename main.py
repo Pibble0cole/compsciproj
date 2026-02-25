@@ -8,13 +8,12 @@ service_opp=["spca","park","soup kichen", "nursing home"]
 
 root= tk.Tk()
 root.geometry("1500x800")
+root.configure(bg="lightblue")
 title = tk.Label(root, text="Community Service Tracker", font=("Helvetica", 30))
 title.grid(row=0, column=0, padx=10, pady=10)
 
-description = tk.Label(root, text="This a app that helps you keep track of your community servie hours ", font=("Helvetica", 12))
+description = tk.Label(root, text="This is an app that helps you keep track of your community service hours \nand suggests places to start your community service work depending on your interests.", font=("Helvetica", 12))
 description.grid(row=1, column=0, padx=10, pady=10,sticky="w")
-description2 = tk.Label(root, text=" and places to start your community service work", font=("Helvetica", 12))
-description2.grid(row=2, column=0, padx=10, pady=10,sticky="w")
 """
 frame = tk.Frame(root, width=150, height=10)
 frame.pack(side="left", anchor="nw", pady=10)
@@ -87,7 +86,7 @@ def get_selected(row):
     print(name)
     selected = [name for name, var in selected_intrests.items() if var.get() == 1]
     row+=1
-    sug_title = tk.Label(root, text="Sugestions:")
+    sug_title = tk.Label(root, text="Suggestions:")
     sug_title.grid(row=row, column=0, padx=10, pady=10,sticky="w")
     suggestedservice = []
     for item in selected:
